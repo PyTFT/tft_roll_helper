@@ -47,13 +47,15 @@ python main.py
 
 ## 项目结构
 
-tft-roll/
-├── main.py           # 程序入口
-├── ui.py            # 界面实现
-├── roll.py          # D牌逻辑
-├── ui/
-│   └── roll.ui      # Qt Designer UI文件
-└── requirements.txt  # 项目依赖
+* 📁 src/ - 源代码目录  
+  * 📄 main.py - 程序入口
+  * 📄 ui.py - 界面实现
+  * 📄 roll.py - D牌逻辑
+* 📁 ui/ - UI文件目录
+  * 📄 roll.ui - Qt Designer UI文件
+* 📄 LICENSE - 许可证文件
+* 📄 README.md - 项目说明文档
+* 📄 requirements.txt - 项目依赖
 
 ## 许可证
 
