@@ -24,7 +24,7 @@
 1. 克隆项目
 ```bash
 git clone https://github.com/PyTFT/tft_roll_helper.git
-cd tft-roll
+cd tft_roll_helper
 ```
 
 2. 安装依赖
