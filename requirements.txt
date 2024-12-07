@@ -1,0 +1,8 @@
+cnocr==2.3.1
+global_hotkeys==0.1.7
+mss==10.0.0
+numpy==2.1.3
+Pillow==11.0.0
+PyDirectInput==1.0.4
+PySide6==6.8.1
+python_imagesearch==1.3.0
