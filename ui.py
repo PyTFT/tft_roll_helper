@@ -53,14 +53,9 @@ class RollWindow:
 
         # 注册全局热键
         bindings = [
-            ["shift+s", None, self.on_hotkey_pressed, False],
+            ["shift+s", None, self.stop_roll, False],
         ]
         register_hotkeys(bindings)
-
-        # 启动热键监听线程
-        self.is_listening = True
-        self.hotkey_thread = threading.Thread(target=self.hotkey_listener)
-        self.hotkey_thread.start()
 
         # 连接信号和槽
         self.window.btn_delete.clicked.connect(self.remove_row)
@@ -122,6 +117,8 @@ class RollWindow:
         self.roll_status = True
         self.window.btn_start.setEnabled(False)
         tab_index = self.window.tabWidget.currentIndex()
+        start_checking_hotkeys()
+        
         match tab_index:
             case 0:
                 row_count = self.window.table.rowCount()
@@ -138,23 +135,10 @@ class RollWindow:
                 interval = self.window.spinBox_4.value()
                 roll_anomalie(d_n, interval, need_anomalie_list, self)
         self.window.btn_start.setEnabled(True)
+        stop_checking_hotkeys()
 
     def stop_roll(self):
         self.roll_status = False
-
-    def hotkey_listener(self):
-        start_checking_hotkeys()
-        # while self.is_listening:
-        #     wait(10000)
-        # stop_checking_hotkeys()
-
-    def on_hotkey_pressed(self):
-        self.stop_roll()
-
-    def close(self):
-        # 停止热键监听线程
-        self.is_listening = False
-        self.hotkey_thread.join()
 
 class MyMainWindow(QMainWindow):
     def __init__(self):
